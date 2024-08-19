@@ -4,17 +4,24 @@ import java.util.Objects;
 
 public class Level {
     private int value;
+    private final int needXpToLvlUp;
 
     // invariant
     public Level(int value) {
+        // TODO : is there a better way to handle invariant ? (record ?)
         if (value < 1) {
             throw new IllegalArgumentException("Level value can't be less than 1");
         }
         this.value = value;
+        this.needXpToLvlUp = value * 100;
     }
 
     public int value() {
         return this.value;
+    }
+
+    public int needXpToLvlUp() {
+        return needXpToLvlUp;
     }
 
     // TODO : remove this

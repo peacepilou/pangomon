@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f640bda-8e6e-4182-ae1c-e986cb5deb4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Pangomon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Pangomon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/playground/domain/PangomonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/PangomonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,8 +152,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.PangomonTest" />
-        <item itemvalue="JUnit.PangomonTest.shouldPassFromLvl1To3_whenGain300Xp" />
         <item itemvalue="JUnit.PangomonTest.shouldPassFromLvl1ToLvl2_whenGain100Xp" />
+        <item itemvalue="JUnit.PangomonTest.shouldPassFromLvl1To3_whenGain300Xp" />
         <item itemvalue="JUnit.PangomonTest.shouldCreatePangomon" />
         <item itemvalue="JUnit.PangomonTest.shouldPassFromLvl1ToLvl_whenGain200Xp" />
       </list>
@@ -182,5 +180,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

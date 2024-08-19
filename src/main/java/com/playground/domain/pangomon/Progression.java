@@ -12,7 +12,7 @@ public class Progression {
         this.experience = experience;
     }
 
-    // TODO : refacto this
+    // TODO : refacto this > use needXpToLvlUp In Level class (final field)
     public Progression gainXp(int xp) {
         int neededXpToLvlUp = level.value() * 100;
         int remainingXp = xp;
@@ -29,8 +29,6 @@ public class Progression {
         );
 
     }
-
-
 
 
     public Level level() {

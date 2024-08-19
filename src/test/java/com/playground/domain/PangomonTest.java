@@ -2,6 +2,7 @@ package com.playground.domain;
 
 import com.playground.domain.pangomon.Level;
 import com.playground.domain.pangomon.Pangomon;
+import com.playground.domain.pangomon.Progression;
 import org.junit.jupiter.api.Test;
 
 import static com.playground.domain.PangomonScenari.*;
@@ -12,7 +13,7 @@ class PangomonTest {
     @Test
     void shouldCreatePangomon() {
         // given
-        Pangomon expectedBenoit = new Pangomon("Benoit", new Level(1), "fire", 20, 10, 10, 10, 100, 10, 0);
+        Pangomon expectedBenoit = new Pangomon("Benoit", "fire", startingProgression(), 20, 10, 10, 10, 100, 10);
         // when
         Pangomon actualBenoit = Pangomon.create("Benoit", "fire");
         // then
@@ -48,7 +49,7 @@ class PangomonTest {
         // when
         Pangomon pangomon = actualBenoit.modifyXp(100);
         // then
-        assertEquals(100, pangomon.xp());
+        assertEquals(100, pangomon.progression().experience());
     }
 
     @Test
@@ -58,7 +59,7 @@ class PangomonTest {
         // when
         Pangomon pangomon = actualBenoit.modifyXp(-100);
         // then
-        assertEquals(-100, pangomon.xp());
+        assertEquals(-100, pangomon.progression().experience());
     }
 
     @Test
@@ -68,7 +69,7 @@ class PangomonTest {
         // when
         Pangomon pangomon = actualBenoit.modifyXp(100);
         // then
-        assertEquals(2, pangomon.level().value());
+        assertEquals(2, pangomon.progression().level().value());
     }
 
     @Test
@@ -78,7 +79,7 @@ class PangomonTest {
         // when
         Pangomon pangomon = actualBenoitLvl2.modifyXp(200);
         // then
-        assertEquals(3, pangomon.level().value());
+        assertEquals(3, pangomon.progression().level().value());
     }
 
     @Test
@@ -88,7 +89,15 @@ class PangomonTest {
         // when
         Pangomon pangoWithXp = actualPango.modifyXp(300);
         // then
-        assertEquals(3, pangoWithXp.level().value());
+        assertEquals(3, pangoWithXp.progression().level().value());
+    }
+
+
+
+
+
+    private Progression startingProgression() {
+        return new Progression(new Level(1), 0);
     }
 
 

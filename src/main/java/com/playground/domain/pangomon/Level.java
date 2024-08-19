@@ -13,22 +13,13 @@ public class Level {
         this.value = value;
     }
 
-
-    public Level gainXp(int xp) {
-        int neededXpToLvlUp = value * 100;
-        int remainingXp = xp;
-
-        while (remainingXp >= neededXpToLvlUp) {
-            value++;
-            remainingXp -= neededXpToLvlUp;
-            neededXpToLvlUp = value * 100;
-        }
-
-        return new Level(value);
-    }
-
     public int value() {
         return this.value;
+    }
+
+    // TODO : remove this
+    public void setValue(int value) {
+        this.value = value;
     }
 
     @Override

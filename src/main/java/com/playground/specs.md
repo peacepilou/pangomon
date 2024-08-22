@@ -17,4 +17,4 @@
 
 
 ## Xp rules
-- [ ] Next lvl = current Lvl * 100
+- [x] Next lvl = current Lvl * 100

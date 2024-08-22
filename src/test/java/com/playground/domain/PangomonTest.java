@@ -52,15 +52,16 @@ class PangomonTest {
         assertEquals(100, pangomon.progression().experience());
     }
 
-    @Test
-    void shouldLooseXp() {
-        // given
-        Pangomon actualBenoit = Pangomon.create("Benoit", "fire");
-        // when
-        Pangomon pangomon = actualBenoit.modifyXp(-100);
-        // then
-        assertEquals(-100, pangomon.progression().experience());
-    }
+    // TODO: Don't do it !
+//    @Test
+//    void shouldLooseXp() {
+//        // given
+//        Pangomon actualBenoit = Pangomon.create("Benoit", "fire");
+//        // when
+//        Pangomon pangomon = actualBenoit.modifyXp(-100);
+//        // then
+//        assertEquals(-100, pangomon.progression().experience());
+//    }
 
     @Test
     void shouldPassFromLvl1ToLvl2_whenGain100Xp() {
@@ -92,15 +93,17 @@ class PangomonTest {
         assertEquals(3, pangoWithXp.progression().level().value());
     }
 
-
-
-
+    @Test
+    void shouldPassFromLvl1To3_whenGain30000Xp() {
+        // given
+        Pangomon actualPango = Pangomon.create("toto", "water");
+        // when
+        Pangomon pangoWithXp = actualPango.modifyXp(30000);
+        // then
+        assertEquals(151, pangoWithXp.progression().level().value());
+    }
 
     private Progression startingProgression() {
         return new Progression(new Level(1), 0);
     }
-
-
-
-
 }

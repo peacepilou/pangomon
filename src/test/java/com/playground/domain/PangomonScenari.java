@@ -19,4 +19,18 @@ public class PangomonScenari {
                 0
         );
     }
+
+    public static Pangomon withSpeed(int speed) {
+        return new Pangomon(
+                "Base",
+                "Base",
+                new Progression(new Level(1), 0),
+                10,
+                10,
+                10,
+                speed,
+                10,
+                10
+        );
+    }
 }

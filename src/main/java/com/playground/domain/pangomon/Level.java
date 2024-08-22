@@ -2,7 +2,9 @@ package com.playground.domain.pangomon;
 
 import java.util.Objects;
 
+
 public class Level {
+
     private int value;
     private final int needXpToLvlUp;
 

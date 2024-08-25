@@ -12,8 +12,8 @@ public record Fight(
 
     public List<Pangomon> initiativeOrder() {
         return Stream.of(playerPangomon, IAPangomon)
-                // TODO: find how to discriminate the two Pangomons
                 .sorted((p1, p2) -> p2.speed() - p1.speed())
+                .sorted((p1, p2) -> p2.id().compareTo(p1.id()))
                 .toList();
     }
 }

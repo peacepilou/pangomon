@@ -14,9 +14,17 @@ public record Progression(
             remainingXp -= level.neededXpToLevel();
         }
 
-        return new Progression(
-                actualLevel,
-                experience + xp
-        );
+        return new Progression(actualLevel, experience + xp);
     }
+
+//    public Progression gainXp(int xp) {
+//        int reduce = IntStream.iterate(
+//                        this.level.value(),
+//                        i -> i < this.level.value() + xp / 100,
+//                        i -> i + 1
+//                )
+//                .reduce(this.experience, (acc, i) -> acc + i * 100);
+//
+//        return new Progression(this.level, reduce);
+//    }
 }

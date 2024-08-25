@@ -7,7 +7,12 @@
     <list default="true" id="8f640bda-8e6e-4182-ae1c-e986cb5deb4f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/fight/Fight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/fight/Fight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Pangomon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Pangomon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/playground/domain/PangomonScenari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/PangomonScenari.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/playground/domain/PangomonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/PangomonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/playground/domain/fight/FightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/fight/FightTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,29 +43,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest,shouldCreatePangomon and 3 more.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest.create.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest.shouldBeKO_whenPvEqual0.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest.shouldCreatePangomon.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest.shouldPassFromLvl1To3_whenGain300Xp.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.PangomonTest.shouldPassFromLvl1ToLvl2_whenGain100Xp.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.PangomonTest.shouldPassFromLvl1ToLvl_whenGain200Xp.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/pilou/Documents/Programming/playgrounds/Pangomon&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.PangomonTest,shouldCreatePangomon and 3 more.executor": "Run",
+    "JUnit.PangomonTest.create.executor": "Run",
+    "JUnit.PangomonTest.executor": "Run",
+    "JUnit.PangomonTest.shouldBeKO_whenPvEqual0.executor": "Run",
+    "JUnit.PangomonTest.shouldCreatePangomon.executor": "Run",
+    "JUnit.PangomonTest.shouldPassFromLvl1To3_whenGain300Xp.executor": "Debug",
+    "JUnit.PangomonTest.shouldPassFromLvl1ToLvl2_whenGain100Xp.executor": "Debug",
+    "JUnit.PangomonTest.shouldPassFromLvl1ToLvl_whenGain200Xp.executor": "Run",
+    "JUnit.java in pangomon.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/pilou/Documents/Programming/playgrounds/Pangomon",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -69,7 +75,7 @@
       <recent name="com.playground.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PangomonTest">
+  <component name="RunManager" selected="JUnit.java in pangomon">
     <configuration name="PangomonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pangomon" />
       <extension name="coverage">
@@ -133,29 +139,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PangomonTest.shouldPassFromLvl1ToLvl_whenGain200Xp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="java in pangomon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pangomon" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.playground.domain.pangomon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.playground.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.playground.domain.PangomonTest" />
-      <option name="METHOD_NAME" value="shouldPassFromLvl1ToLvl_whenGain200Xp" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in pangomon" />
         <item itemvalue="JUnit.PangomonTest" />
         <item itemvalue="JUnit.PangomonTest.shouldPassFromLvl1ToLvl2_whenGain100Xp" />
         <item itemvalue="JUnit.PangomonTest.shouldPassFromLvl1To3_whenGain300Xp" />
         <item itemvalue="JUnit.PangomonTest.shouldCreatePangomon" />
-        <item itemvalue="JUnit.PangomonTest.shouldPassFromLvl1ToLvl_whenGain200Xp" />
       </list>
     </recent_temporary>
   </component>

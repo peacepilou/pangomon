@@ -3,8 +3,10 @@ package com.playground.domain.fight;
 import com.playground.domain.pangomon.Pangomon;
 import org.junit.jupiter.api.Test;
 
+import java.util.UUID;
+
 import static com.playground.domain.PangomonScenari.withSpeed;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class FightTest {
 
@@ -18,7 +20,10 @@ class FightTest {
 
         // when
         // then
-        assertEquals(playerPangomon, fight.initiativeOrder().get(0));
+        assertThat(fight.initiativeOrder().get(0))
+                .usingRecursiveComparison()
+                .ignoringFieldsOfTypes(UUID.class)
+                .isEqualTo(playerPangomon);
     }
 
     @Test
@@ -31,6 +36,9 @@ class FightTest {
 
         // when
         // then
-        assertEquals(IAPangomon, fight.initiativeOrder().get(0));
+        assertThat(fight.initiativeOrder().get(0))
+                .usingRecursiveComparison()
+                .ignoringFieldsOfTypes(UUID.class)
+                .isEqualTo(IAPangomon);
     }
 }

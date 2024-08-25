@@ -4,10 +4,13 @@ import com.playground.domain.pangomon.Level;
 import com.playground.domain.pangomon.Pangomon;
 import com.playground.domain.pangomon.Progression;
 
+import java.util.UUID;
+
 public class PangomonScenari {
 
     public static Pangomon aLeveledPangomon(int lvl) {
         return new Pangomon(
+                UUID.randomUUID(),
                 "",
                 "",
                 new Progression(new Level(lvl), lvl * 100),
@@ -22,6 +25,7 @@ public class PangomonScenari {
 
     public static Pangomon withSpeed(int speed) {
         return new Pangomon(
+                UUID.randomUUID(),
                 "Base",
                 "Base",
                 new Progression(new Level(1), 0),

@@ -1,6 +1,9 @@
 package com.playground.domain.pangomon;
 
+import java.util.UUID;
+
 public record Pangomon (
+        UUID id,
         String name,
         String type,
         Progression progression,
@@ -14,6 +17,7 @@ public record Pangomon (
 
     public static Pangomon create(String name, String type) {
         return new Pangomon(
+                UUID.randomUUID(),
                 name,
                 type,
                 new Progression(new Level(1), 0),
@@ -30,6 +34,7 @@ public record Pangomon (
         int remainingPv = Math.max(this.pv - damages, 0);
 
         return new Pangomon(
+                this.id,
                 this.name,
                 this.type,
                 this.progression,
@@ -48,6 +53,7 @@ public record Pangomon (
 
     public Pangomon modifyXp(int xp) {
         return new Pangomon(
+                this.id,
                 this.name,
                 this.type,
                 this.progression.gainXp(xp),

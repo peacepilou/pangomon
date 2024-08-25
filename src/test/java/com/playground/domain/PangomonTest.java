@@ -5,51 +5,56 @@ import com.playground.domain.pangomon.Pangomon;
 import com.playground.domain.pangomon.Progression;
 import org.junit.jupiter.api.Test;
 
-import static com.playground.domain.PangomonScenari.*;
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.UUID;
+
+import static com.playground.domain.PangomonScenari.aLeveledPangomon;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class PangomonTest {
 
     @Test
     void shouldCreatePangomon() {
         // given
-        Pangomon expectedBenoit = new Pangomon("Benoit", "fire", startingProgression(), 20, 10, 10, 10, 100, 10);
+        Pangomon actualBenoit = new Pangomon(UUID.randomUUID(), "Benoit", "fire", startingProgression(), 20, 10, 10, 10, 100, 10);
         // when
-        Pangomon actualBenoit = Pangomon.create("Benoit", "fire");
+        Pangomon expectedBenoit = Pangomon.create("Benoit", "fire");
         // then
-        assertEquals(expectedBenoit, actualBenoit);
+        assertThat(actualBenoit)
+                .usingRecursiveComparison()
+                .ignoringFieldsOfTypes(UUID.class)
+                .isEqualTo(expectedBenoit);
     }
 
     @Test
     void shouldBeKO_whenPvEqual0() {
         // given
-        Pangomon actualBenoit = Pangomon.create("Benoit", "fire");
         // when
-        Pangomon koPangomon = actualBenoit.takeDamages(20);
+        Pangomon koPangomon = Pangomon.create("Benoit", "fire").takeDamages(20);
+
         // then
-        assertEquals(0, koPangomon.pv());
-        assertTrue(koPangomon.isKo());
+        assertThat(koPangomon.pv()).isEqualTo(0);
+        assertThat(koPangomon.isKo()).isTrue();
     }
 
     @Test
     void shouldBeKO_whenPvIsLessOrEqual0() {
         // given
-        Pangomon actualBenoit = Pangomon.create("Benoit", "fire");
         // when
-        Pangomon koPangomon = actualBenoit.takeDamages(25);
+        Pangomon koPangomon = Pangomon.create("Benoit", "fire").takeDamages(25);
+
         // then
-        assertEquals(0, koPangomon.pv());
-        assertTrue(koPangomon.isKo());
+        assertThat(koPangomon.pv()).isEqualTo(0);
+        assertThat(koPangomon.isKo()).isTrue();
     }
 
     @Test
     void shouldGainXp() {
         // given
-        Pangomon actualBenoit = Pangomon.create("Benoit", "fire");
         // when
-        Pangomon pangomon = actualBenoit.modifyXp(100);
+        Pangomon pangomon = Pangomon.create("Benoit", "fire").modifyXp(100);
+
         // then
-        assertEquals(100, pangomon.progression().experience());
+        assertThat(pangomon.progression().experience()).isEqualTo(100);
     }
 
     // TODO: Don't do it !
@@ -60,47 +65,51 @@ class PangomonTest {
 //        // when
 //        Pangomon pangomon = actualBenoit.modifyXp(-100);
 //        // then
-//        assertEquals(-100, pangomon.progression().experience());
+//        assertThat(-100, pangomon.progression().experience());
 //    }
 
     @Test
     void shouldPassFromLvl1ToLvl2_whenGain100Xp() {
         // given
-        Pangomon actualBenoit = Pangomon.create("Benoit", "fire");
         // when
-        Pangomon pangomon = actualBenoit.modifyXp(100);
+        Pangomon pangomon = Pangomon.create("Benoit", "fire").modifyXp(100);
+
         // then
-        assertEquals(2, pangomon.progression().level().value());
+        assertThat(pangomon.progression().experience()).isEqualTo(100);
+        assertThat(pangomon.progression().level().value()).isEqualTo(2);
     }
 
     @Test
     void shouldPassFromLvl2ToLvl3_whenGain200Xp() {
         // given
-        Pangomon actualBenoitLvl2 = aLeveledPangomon(2);
         // when
-        Pangomon pangomon = actualBenoitLvl2.modifyXp(200);
+        Pangomon pangomon = aLeveledPangomon(2).modifyXp(200);
+
         // then
-        assertEquals(3, pangomon.progression().level().value());
+        assertThat(pangomon.progression().experience()).isEqualTo(300);
+        assertThat(pangomon.progression().level().value()).isEqualTo(3);
     }
 
     @Test
     void shouldPassFromLvl1To3_whenGain300Xp() {
         // given
-        Pangomon actualPango = Pangomon.create("toto", "water");
         // when
-        Pangomon pangoWithXp = actualPango.modifyXp(300);
+        Pangomon pangoWithXp = Pangomon.create("toto", "water").modifyXp(300);
+
         // then
-        assertEquals(3, pangoWithXp.progression().level().value());
+        assertThat(pangoWithXp.progression().experience()).isEqualTo(300);
+        assertThat(pangoWithXp.progression().level().value()).isEqualTo(3);
     }
 
     @Test
     void shouldPassFromLvl1To3_whenGain30000Xp() {
         // given
-        Pangomon actualPango = Pangomon.create("toto", "water");
         // when
-        Pangomon pangoWithXp = actualPango.modifyXp(30000);
+        Pangomon pangoWithXp = Pangomon.create("toto", "water").modifyXp(30000);
+
         // then
-        assertEquals(151, pangoWithXp.progression().level().value());
+        assertThat(pangoWithXp.progression().experience()).isEqualTo(30000);
+        assertThat(pangoWithXp.progression().level().value()).isEqualTo(151);
     }
 
     private Progression startingProgression() {

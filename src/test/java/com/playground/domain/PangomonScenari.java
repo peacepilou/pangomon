@@ -13,7 +13,7 @@ public class PangomonScenari {
                 UUID.randomUUID(),
                 "",
                 "",
-                new Progression(new Level(lvl), lvl * 100),
+                new Progression(new Level(lvl), experienceFor(lvl)),
                 0,
                 0,
                 0,
@@ -36,5 +36,9 @@ public class PangomonScenari {
                 10,
                 10
         );
+    }
+
+    private static int experienceFor(int level) {
+        return (level - 1) * level / 2 * 100;
     }
 }

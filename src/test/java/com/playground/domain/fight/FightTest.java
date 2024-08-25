@@ -1,7 +1,7 @@
 package com.playground.domain.fight;
 
 import com.playground.domain.pangomon.Pangomon;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import java.util.UUID;
 
@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class FightTest {
 
-    @Test
+    @RepeatedTest(100)
     void playerPangomon_ShouldFightFirst_WhenItHasHigherSpeed() {
         // given
         Pangomon playerPangomon = withSpeed(20);
@@ -26,7 +26,7 @@ class FightTest {
                 .isEqualTo(playerPangomon);
     }
 
-    @Test
+    @RepeatedTest(100)
     void IAPangomon_ShouldFightFirst_WhenBothHasSameSpeed() {
         // given
         Pangomon playerPangomon = withSpeed(20);

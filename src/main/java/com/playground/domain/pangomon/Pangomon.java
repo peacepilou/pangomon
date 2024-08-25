@@ -2,7 +2,7 @@ package com.playground.domain.pangomon;
 
 import java.util.UUID;
 
-public record Pangomon (
+public record Pangomon(
         UUID id,
         String name,
         String type,
@@ -27,7 +27,7 @@ public record Pangomon (
                 10,
                 100,
                 10
-                );
+        );
     }
 
     public Pangomon takeDamages(int damages) {

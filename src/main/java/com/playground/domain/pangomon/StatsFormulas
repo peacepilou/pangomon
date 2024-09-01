@@ -1,0 +1,49 @@
+PV = (((2 x Base + IV + (EV/4)) x niveau) / 100) + niveau + 10
+Stat = ((((2 x Base + IV + (EV/4)) x niveau) / 100) + 5) x Nature
+
+PV_Base -> de 10 à 255
+ATK_Base -> de 5 à 190
+DEF_Base -> de 5 à 230
+ATK_SPE_Base -> de 10 à 194
+DEF_SPE_Base -> de 20 à 250
+VIT_Base -> de 5 à 200
+
+IndividualValue -> de 0 à 31 repartis sur les 6 stats à la "naissance" du pangomon
+EffortValue -> 510 max toute stats confondues // 252 max pour une seule stat --> 4 EV = 1 point de stat
+
+PREC_Base -> 100% (peut etre modifiée)
+ESQ_Base -> 100% (peut etre modifiée)
+% de réussite d'une attaque -> Préussite = PREcapacité x (PRECattaquant / ESQdéfenseur)
+Adapation rapport au niveau en combat ->
+    -6 à +6 niveau d'écarts
+    33% / 38% / 43% / 50% / 60% / 75% / 100% / 133% / 167% / 200% / 233% / 267% / 300%
+
+Augmentation de niveau -> Stat = +(Base / 50) + (SUM (EV + IV) / 100)
+
+Nature -> une Stat +10% et une autre -10%
+    NOM -> BONUS / MALUS
+    - Assuré -> DEF / ATK
+    - Bizarre -> NEUTRE
+    - Brave -> ATK / VIT
+    - Calme -> DEF_SPE / ATK
+    - Discret -> ATK_SPE / VIT
+    - Docile -> NEUTRE
+    - Doux -> ATK_SPE / DEF
+    - Foufou -> ATK_SPE / DEF_SPE
+    - Gentil -> DEF_SPE / DEF
+    - Hardi -> NEUTRE
+    - Jovial -> VIT / ATK_SPE
+    - Lâche -> DEF / DEF_SPE
+    - Malin -> ATK / ATK_SPE
+    - Malpoli -> DEF_SPE / VIT
+    - Mauvais -> ATK / DEF_SPE
+    - Modeste -> ATK_SPE / ATK
+    - Naïf -> VIT / DEF_SPE
+    - Pressé -> VIT / DEF
+    - Prudent -> DEF_SPE / ATK_SPE
+    - Pudique -> NEUTRE
+    - Relax -> DEF / VIT
+    - Rigide -> ATK / ATK_SPE
+    - Sérieux -> NEUTRE
+    - Solo -> ATK / DEF
+    - Timide -> VIT / ATK

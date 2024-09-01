@@ -7,11 +7,11 @@ import java.util.stream.Stream;
 
 public record Fight(
         Pangomon playerPangomon,
-        Pangomon IAPangomon
+        Pangomon iAPangomon
 ) {
 
     public List<Pangomon> initiativeOrder() {
-        return Stream.of(playerPangomon, IAPangomon)
+        return Stream.of(playerPangomon, iAPangomon)
             .sorted((p1, p2) -> p2.speed() - p1.speed())
             .toList();
     }

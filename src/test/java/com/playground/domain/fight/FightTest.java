@@ -39,16 +39,16 @@ class FightTest {
         void IAPangomon_ShouldFightFirst_WhenBothHasSameSpeed() {
             // given
             Pangomon playerPangomon = withSpeed(20);
-            Pangomon IAPangomon = withSpeed(20);
+            Pangomon iAPangomon = withSpeed(20);
 
-            Fight fight = new Fight(IAPangomon, playerPangomon);
+            Fight fight = new Fight(iAPangomon, playerPangomon);
 
             // when
             // then
             assertThat(fight.initiativeOrder().get(0))
                     .usingRecursiveComparison()
                     .ignoringFieldsOfTypes(UUID.class)
-                    .isEqualTo(IAPangomon);
+                    .isEqualTo(iAPangomon);
         }*/
 
     }

@@ -47,6 +47,10 @@ public record Pangomon(
         );
     }
 
+    public Pangomon attacks(Pangomon defender) {
+        return defender.takeDamages(this.attack);
+    }
+
     public boolean isKo() {
         return this.pv <= 0;
     }

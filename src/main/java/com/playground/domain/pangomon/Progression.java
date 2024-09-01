@@ -23,6 +23,7 @@ public record Progression(
     }
 
     private Level levelFor(int experiencePoints) {
+        // TODO : Use methods from Level class
         int levelValue = (int) Math.floor((1 + Math.sqrt(1 + 8 * experiencePoints / 100.0)) / 2);
         return new Level(levelValue);
     }

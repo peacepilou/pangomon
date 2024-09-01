@@ -12,8 +12,12 @@ public record Fight(
 
     public List<Pangomon> initiativeOrder() {
         return Stream.of(playerPangomon, IAPangomon)
-                .sorted((p1, p2) -> p2.speed() - p1.speed())
-                .sorted((p1, p2) -> p2.id().compareTo(p1.id()))
-                .toList();
+            .sorted((p1, p2) -> p2.speed() - p1.speed())
+            .toList();
+    }
+
+    public Pangomon pango1AttacksPango2(Pangomon attacker, Pangomon defender) {
+        return defender.takeDamages(attacker.attack());
+
     }
 }

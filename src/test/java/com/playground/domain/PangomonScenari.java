@@ -23,6 +23,21 @@ public class PangomonScenari {
         );
     }
 
+    public static Pangomon withBaseStats() {
+        return new Pangomon(
+                UUID.randomUUID(),
+                "Base",
+                "Base",
+                new Progression(new Level(1), 0),
+                10,
+                10,
+                10,
+                10,
+                10,
+                10
+        );
+    }
+
     public static Pangomon withSpeed(int speed) {
         return new Pangomon(
                 UUID.randomUUID(),
@@ -37,6 +52,8 @@ public class PangomonScenari {
                 10
         );
     }
+
+
 
     private static int experienceFor(int level) {
         return (level - 1) * level / 2 * 100;

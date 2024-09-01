@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Test;
 import java.util.UUID;
 
 import static com.playground.domain.PangomonScenari.aLeveledPangomon;
+import static com.playground.domain.PangomonScenari.withBaseStats;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PangomonTest {
 
@@ -26,27 +28,51 @@ class PangomonTest {
                 .isEqualTo(expectedBenoit);
     }
 
-    @Test
-    void shouldBeKO_whenPvEqual0() {
-        // given
-        // when
-        Pangomon koPangomon = Pangomon.create("Benoit", "fire").takeDamages(20);
+    @Nested
+    class handleDamages {
 
-        // then
-        assertThat(koPangomon.pv()).isEqualTo(0);
-        assertThat(koPangomon.isKo()).isTrue();
+        @Test
+        void pangomonAttacksAnotherPangomon() {
+            Pangomon playerPangomon = withBaseStats();
+            Pangomon iAPangomon = withBaseStats();
+
+            Pangomon iaPangomonHurted = playerPangomon.attacks(iAPangomon);
+            assertEquals(0, iaPangomonHurted.pv());
+        }
+
+        @Test
+        void pangomonTakeDamages() {
+            // given
+            // when
+            Pangomon iAPangomon = withBaseStats().takeDamages(5);
+            // then
+            assertEquals(5, iAPangomon.pv());
+
+        }
+
+        @Test
+        void shouldBeKO_whenPvEqual0() {
+            // given
+            // when
+            Pangomon koPangomon = withBaseStats().takeDamages(10);
+
+            // then
+            assertThat(koPangomon.pv()).isEqualTo(0);
+            assertThat(koPangomon.isKo()).isTrue();
+        }
+
+        @Test
+        void shouldBeKO_whenPvIsLessOrEqual0() {
+            // given
+            // when
+            Pangomon koPangomon = withBaseStats().takeDamages(11);
+
+            // then
+            assertThat(koPangomon.pv()).isEqualTo(0);
+            assertThat(koPangomon.isKo()).isTrue();
+        }
     }
 
-    @Test
-    void shouldBeKO_whenPvIsLessOrEqual0() {
-        // given
-        // when
-        Pangomon koPangomon = Pangomon.create("Benoit", "fire").takeDamages(25);
-
-        // then
-        assertThat(koPangomon.pv()).isEqualTo(0);
-        assertThat(koPangomon.isKo()).isTrue();
-    }
 
     private Progression startingProgression() {
         return new Progression(new Level(1), 0);

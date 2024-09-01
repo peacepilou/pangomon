@@ -16,6 +16,7 @@
 - [ ] Can switch pangomon
 - [ ] Table of types
 - [x] End of each combat > XP calcul
+- [ ] Fight holds what ?
 
 ## Xp rules
 

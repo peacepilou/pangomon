@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8f640bda-8e6e-4182-ae1c-e986cb5deb4f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/fight/Fight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/fight/Fight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Pangomon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Pangomon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java" afterDir="false" />
@@ -46,6 +45,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.FightTest$Attack.pangomonAttacksAnotherPangomon.executor": "Run",
+    "JUnit.FightTest.executor": "Run",
+    "JUnit.FightTest.playerPangomon_ShouldFightFirst_WhenItHasHigherSpeed.executor": "Run",
+    "JUnit.PangomonTest$TakeDamages.executor": "Run",
+    "JUnit.PangomonTest$TakeDamages.pangomonTakeDamages.executor": "Run",
     "JUnit.PangomonTest,shouldCreatePangomon and 3 more.executor": "Run",
     "JUnit.PangomonTest.create.executor": "Run",
     "JUnit.PangomonTest.executor": "Run",
@@ -75,7 +79,70 @@
       <recent name="com.playground.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in pangomon">
+  <component name="RunManager" selected="JUnit.PangomonTest">
+    <configuration name="FightTest$Attack.pangomonAttacksAnotherPangomon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pangomon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.playground.domain.fight.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.playground.domain.fight.FightTest" />
+      <option name="MAIN_CLASS_NAME" value="com.playground.domain.fight.FightTest$Attack" />
+      <option name="METHOD_NAME" value="pangomonAttacksAnotherPangomon" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FightTest.playerPangomon_ShouldFightFirst_WhenItHasHigherSpeed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pangomon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.playground.domain.fight.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.playground.domain.fight" />
+      <option name="MAIN_CLASS_NAME" value="com.playground.domain.fight.FightTest" />
+      <option name="METHOD_NAME" value="playerPangomon_ShouldFightFirst_WhenItHasHigherSpeed" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PangomonTest$TakeDamages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pangomon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.playground.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.playground.domain.PangomonTest" />
+      <option name="MAIN_CLASS_NAME" value="com.playground.domain.PangomonTest$TakeDamages" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PangomonTest$TakeDamages.pangomonTakeDamages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pangomon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.playground.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.playground.domain.PangomonTest" />
+      <option name="MAIN_CLASS_NAME" value="com.playground.domain.PangomonTest$TakeDamages" />
+      <option name="METHOD_NAME" value="pangomonTakeDamages" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PangomonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pangomon" />
       <extension name="coverage">
@@ -91,69 +158,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PangomonTest.shouldCreatePangomon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pangomon" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.playground.domain.pangomon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.playground.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.playground.domain.PangomonTest" />
-      <option name="METHOD_NAME" value="shouldCreatePangomon" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PangomonTest.shouldPassFromLvl1To3_whenGain300Xp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pangomon" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.playground.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.playground.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.playground.domain.PangomonTest" />
-      <option name="METHOD_NAME" value="shouldPassFromLvl1To3_whenGain300Xp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PangomonTest.shouldPassFromLvl1ToLvl2_whenGain100Xp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pangomon" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.playground.domain.pangomon.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.playground.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.playground.domain.PangomonTest" />
-      <option name="METHOD_NAME" value="shouldPassFromLvl1ToLvl2_whenGain100Xp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="java in pangomon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pangomon" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in pangomon" />
         <item itemvalue="JUnit.PangomonTest" />
-        <item itemvalue="JUnit.PangomonTest.shouldPassFromLvl1ToLvl2_whenGain100Xp" />
-        <item itemvalue="JUnit.PangomonTest.shouldPassFromLvl1To3_whenGain300Xp" />
-        <item itemvalue="JUnit.PangomonTest.shouldCreatePangomon" />
+        <item itemvalue="JUnit.FightTest$Attack.pangomonAttacksAnotherPangomon" />
+        <item itemvalue="JUnit.PangomonTest$TakeDamages" />
+        <item itemvalue="JUnit.PangomonTest$TakeDamages.pangomonTakeDamages" />
+        <item itemvalue="JUnit.FightTest.playerPangomon_ShouldFightFirst_WhenItHasHigherSpeed" />
       </list>
     </recent_temporary>
   </component>

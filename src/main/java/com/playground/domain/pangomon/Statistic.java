@@ -51,13 +51,17 @@ record Speed(int value) {
     // VIT_Base -> de 5 à 200
 }
 
+// TODO: Rules to implement
+// this is on the "creation" of the pangomon
 record IndividualValue(int value) {
     // TODO: Add validation
     // TODO: Rules to implement
-    // de 0 à 31 repartis sur les 6 stats à la "naissance" du pangomon
+    // de 0 à 31 repartis sur les 6 stats
     // 1 IV = 1 point de stat en plus
 }
 
+// TODO: Rules to implement
+// this is in addition to the Experience gained after a fight
 record EffortValue(int value) {
     // TODO: Add validation
     // TODO: Rules to implement
@@ -69,6 +73,7 @@ record EffortValue(int value) {
 // for PREC and DODGE
 // PREC_Base -> 100% (peut etre modifiée)
 // ESQ_Base -> 100% (peut etre modifiée)
+// PREcapacité -> 1% à 100%
 // % de réussite d'une attaque -> Préussite = PREcapacité x (PRECattaquant / ESQdéfenseur)
 // Adapation rapport au niveau en combat ->
 //    -6 à +6 niveau d'écarts

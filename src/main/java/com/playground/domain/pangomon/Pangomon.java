@@ -10,26 +10,8 @@ public record Pangomon(
         int pv,
         int attack,
         int defense,
-        int speed,
-        int accuracy,
-        int dodge
+        int speed
 ) {
-
-    public static Pangomon create(String name, String type) {
-        return new Pangomon(
-                UUID.randomUUID(),
-                name,
-                type,
-                new Progression(new Level(1), 0),
-                20,
-                10,
-                10,
-                10,
-                100,
-                10
-        );
-    }
-
     public Pangomon takeDamages(int damages) {
         int remainingPv = Math.max(this.pv - damages, 0);
 
@@ -41,9 +23,7 @@ public record Pangomon(
                 remainingPv,
                 this.attack,
                 this.defense,
-                this.speed,
-                this.accuracy,
-                this.dodge
+                this.speed
         );
     }
 
@@ -64,9 +44,7 @@ public record Pangomon(
                 this.pv,
                 this.attack,
                 this.defense,
-                this.speed,
-                this.accuracy,
-                this.dodge
+                this.speed
         );
     }
 

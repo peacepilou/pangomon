@@ -19,5 +19,4 @@ public record Progression(
         int levelValue = (int) Math.floor((1 + Math.sqrt(1 + 8 * experiencePoints / EXPERIENCE_FACTOR)) / 2);
         return new Level(levelValue);
     }
-
 }

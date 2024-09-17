@@ -1,20 +1,36 @@
 package com.playground.domain;
 
+import com.playground.domain.pangomon.HealthPoint;
 import com.playground.domain.pangomon.Level;
 import com.playground.domain.pangomon.Pangomon;
 import com.playground.domain.pangomon.Progression;
 
 import java.util.UUID;
 
-public class PangomonScenari {
-    private final UUID id = UUID.randomUUID();
-    private final String name = "DefaultName";
-    private final String type = "Normal";
-    private final Progression progression = new Progression(new Level(1), 0);
-    private final int pv = 10;
-    private final int attack = 5;
-    private final int defense = 5;
-    private final int speed = 5;
+public record PangomonScenari(
+        UUID id,
+        String name,
+        String type,
+        Progression progression,
+        int pv,
+        HealthPoint healthPoints,
+        int attack,
+        int defense,
+        int speed
+) {
+    public PangomonScenari() {
+        this(
+                UUID.randomUUID(),
+                "DefaultName",
+                "Normal",
+                new Progression(new Level(1), 0),
+                10,
+                new HealthPoint(10, 10),
+                5,
+                5,
+                5
+        );
+    }
 
     public static PangomonScenari aPangomon() {
         return new PangomonScenari();
@@ -24,44 +40,52 @@ public class PangomonScenari {
         return new PangomonScenari().build();
     }
 
-    public Pangomon withId(UUID id) {
-        return new Pangomon(id, name, type, progression, pv, attack, defense, speed);
+    public PangomonScenari withId(UUID id) {
+        return new PangomonScenari(id, name, type, progression, pv, healthPoints, attack, defense, speed);
     }
 
-    public Pangomon withName(String name) {
-        return new Pangomon(id, name, type, progression, pv, attack, defense, speed);
+    public PangomonScenari withName(String name) {
+        return new PangomonScenari(id, name, type, progression, pv, healthPoints, attack, defense, speed);
     }
 
-    public Pangomon withType(String type) {
-        return new Pangomon(id, name, type, progression, pv, attack, defense, speed);
+    public PangomonScenari withType(String type) {
+        return new PangomonScenari(id, name, type, progression, pv, healthPoints, attack, defense, speed);
     }
 
-    public Pangomon withProgression(Progression progression) {
-        return new Pangomon(id, name, type, progression, pv, attack, defense, speed);
+    public PangomonScenari withProgression(Progression progression) {
+        return new PangomonScenari(id, name, type, progression, pv, healthPoints, attack, defense, speed);
     }
 
-    public Pangomon withPv(int pv) {
-        return new Pangomon(id, name, type, progression, pv, attack, defense, speed);
+    public PangomonScenari withPv(int pv) {
+        return new PangomonScenari(id, name, type, progression, pv, healthPoints, attack, defense, speed);
     }
 
-    public Pangomon withAttack(int attack) {
-        return new Pangomon(id, name, type, progression, pv, attack, defense, speed);
+    public PangomonScenari withHealthPoints(int healthPoints) {
+        return new PangomonScenari(id, name, type, progression, pv, new HealthPoint(healthPoints, this.healthPoints.base()), attack, defense, speed);
     }
 
-    public Pangomon withDefense(int defense) {
-        return new Pangomon(id, name, type, progression, pv, attack, defense, speed);
+    public PangomonScenari withBaseHealthPoints(int baseHealthPoints) {
+        return new PangomonScenari(id, name, type, progression, pv, new HealthPoint(healthPoints.value(), baseHealthPoints), attack, defense, speed);
     }
 
-    public Pangomon withSpeed(int speed) {
-        return new Pangomon(id, name, type, progression, pv, attack, defense, speed);
+    public PangomonScenari withAttack(int attack) {
+        return new PangomonScenari(id, name, type, progression, pv, healthPoints, attack, defense, speed);
     }
 
-    public Pangomon withLevel(int level) {
-        return new Pangomon(id, name, type, new Progression(new Level(level), experienceFor(level)), pv, attack, defense, speed);
+    public PangomonScenari withDefense(int defense) {
+        return new PangomonScenari(id, name, type, progression, pv, healthPoints, attack, defense, speed);
     }
 
-    private Pangomon build() {
-        return new Pangomon(id, name, type, progression, pv, attack, defense, speed);
+    public PangomonScenari withSpeed(int speed) {
+        return new PangomonScenari(id, name, type, progression, pv, healthPoints, attack, defense, speed);
+    }
+
+    public PangomonScenari withLevel(int level) {
+        return new PangomonScenari(id, name, type, new Progression(new Level(level), experienceFor(level)), pv, healthPoints, attack, defense, speed);
+    }
+
+    public Pangomon build() {
+        return new Pangomon(id, name, type, progression, pv, healthPoints, attack, defense, speed);
     }
 
     private static int experienceFor(int level) {

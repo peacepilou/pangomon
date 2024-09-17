@@ -12,13 +12,6 @@ enum Statistic {
 // TODO: Rules to implement
 // each level you gain -> each Stat increase = +(Base / 50) + (SUM (EV + IV) / 100)
 
-record HealthPoint(int value) {
-    // TODO: Add validation
-    // TODO: Rules to implement
-    // PV_Base -> de 10 à 255
-    // start for a specific level -> (((2 x Base + IV + (EV/4)) x niveau) / 100) + niveau + 10
-}
-
 // start for all stats at specific level
 // ((((2 x Base + IV + (EV/4)) x niveau) / 100) + 5) x Nature
 record Attack(int value) {

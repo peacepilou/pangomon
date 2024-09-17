@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f640bda-8e6e-4182-ae1c-e986cb5deb4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/playground/exposition/PangomonController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/playground/exposition/PangomonRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/playground/exposition/PangomonResponseDto.java" afterDir="false" />
+    <list default="true" id="8f640bda-8e6e-4182-ae1c-e986cb5deb4f" name="Changes" comment="Reworks PangomonScenari and remove accuracy and dodge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/HealthPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/HealthPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +184,16 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

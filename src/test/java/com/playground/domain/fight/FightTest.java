@@ -20,8 +20,8 @@ class FightTest {
         @RepeatedTest(100)
         void playerPangomon_ShouldFightFirst_WhenItHasHigherSpeed() {
             // given
-            Pangomon playerPangomon = aPangomon().withSpeed(20);
-            Pangomon iAPangomon = aPangomon().withSpeed(10);
+            Pangomon playerPangomon = aPangomon().withSpeed(20).build();
+            Pangomon iAPangomon = aPangomon().withSpeed(10).build();
 
             Fight fight = new Fight(iAPangomon, playerPangomon);
 

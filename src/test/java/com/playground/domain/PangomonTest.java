@@ -81,7 +81,10 @@ class PangomonTest {
         void shouldPassFromLvl2ToLvl3_whenGain200Xp() {
             // given
             // when
-            Pangomon pangomon = aPangomon().withLevel(2).modifyXp(200);
+            Pangomon pangomon = aPangomon()
+                    .withLevel(2)
+                    .build()
+                    .modifyXp(200);
 
             // then
             assertThat(pangomon.progression().experience()).isEqualTo(300);
@@ -132,5 +135,36 @@ class PangomonTest {
             assertThat(pangoWithXp.progression().level().value()).isEqualTo(26);
         }
 
+    }
+
+    @Nested
+    class LevelUpTest {
+        @Test
+        void pangomonWith10BaseHP_shouldNotGainHP_whenLevelUp() {
+            // given
+            // when
+            Pangomon pangomon = aPangomon()
+                    .withLevel(1)
+                    .withBaseHealthPoints(10)
+                    .build()
+                    .modifyXp(100);
+
+            // then
+            assertThat(pangomon.healthPoints().value()).isEqualTo(10);
+        }
+
+        @Test
+        void pangomonWith255BaseHP_shouldGain5HP_whenLevelUp() {
+            // given
+            // when
+            Pangomon pangomon = aPangomon()
+                    .withLevel(1)
+                    .withBaseHealthPoints(255)
+                    .build()
+                    .modifyXp(100);
+
+            // then
+            assertThat(pangomon.healthPoints().value()).isEqualTo(15);
+        }
     }
 }

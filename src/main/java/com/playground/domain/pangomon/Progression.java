@@ -4,19 +4,28 @@ public record Progression(
         Level level,
         int experience
 ) {
-    private static final double EXPERIENCE_FACTOR = 100.0;
+    public Pangomon gainExperience(Pangomon pangomon, int xp) {
+        int experience = xp;
+        Level actualLevel = level;
 
-    public Progression gainXp(int xp) {
-        int finalExperience = experience + xp;
-        return new Progression(
-                levelFor(finalExperience),
-                finalExperience
+        HealthPoint healthPoints = pangomon.healthPoints();
+
+        while (experience >= actualLevel.experienceForNextLevel()) {
+            experience -= actualLevel.experienceForNextLevel();
+            actualLevel = actualLevel.levelUp();
+            healthPoints = healthPoints.increase();
+        }
+
+        return new Pangomon(
+                pangomon.id(),
+                pangomon.name(),
+                pangomon.type(),
+                new Progression(actualLevel, this.experience + xp),
+                pangomon.pv(),
+                healthPoints,
+                pangomon.attack(),
+                pangomon.defense(),
+                pangomon.speed()
         );
-    }
-
-    private Level levelFor(int experiencePoints) {
-        // TODO : Use methods from Level class
-        int levelValue = (int) Math.floor((1 + Math.sqrt(1 + 8 * experiencePoints / EXPERIENCE_FACTOR)) / 2);
-        return new Level(levelValue);
     }
 }

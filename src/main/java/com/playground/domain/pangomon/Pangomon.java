@@ -8,6 +8,7 @@ public record Pangomon(
         String type,
         Progression progression,
         int pv,
+        HealthPoint healthPoints,
         int attack,
         int defense,
         int speed
@@ -21,6 +22,7 @@ public record Pangomon(
                 this.type,
                 this.progression,
                 remainingPv,
+                this.healthPoints,
                 this.attack,
                 this.defense,
                 this.speed
@@ -36,16 +38,7 @@ public record Pangomon(
     }
 
     public Pangomon modifyXp(int xp) {
-        return new Pangomon(
-                this.id,
-                this.name,
-                this.type,
-                this.progression.gainXp(xp),
-                this.pv,
-                this.attack,
-                this.defense,
-                this.speed
-        );
+        return this.progression.gainExperience(this, xp);
     }
 
 }

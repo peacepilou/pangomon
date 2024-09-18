@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f640bda-8e6e-4182-ae1c-e986cb5deb4f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/playground/exposition/PangomonController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/playground/exposition/PangomonRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/playground/exposition/PangomonResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Statistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Statistic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +20,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Record" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>

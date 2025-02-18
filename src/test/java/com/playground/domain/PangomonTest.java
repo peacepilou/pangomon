@@ -60,7 +60,7 @@ class PangomonTest {
         void shouldGainXp() {
             // given
             // when
-            Pangomon pangomon = aBasicPangomon().modifyXp(50);
+            Pangomon pangomon = aBasicPangomon().gainExperience(50);
 
             // then
             assertThat(pangomon.progression().experience()).isEqualTo(50);
@@ -70,7 +70,7 @@ class PangomonTest {
         void shouldPassFromLvl1ToLvl2_whenGain100Xp() {
             // given
             // when
-            Pangomon pangomon = aBasicPangomon().modifyXp(100);
+            Pangomon pangomon = aBasicPangomon().gainExperience(100);
 
             // then
             assertThat(pangomon.progression().experience()).isEqualTo(100);
@@ -84,7 +84,7 @@ class PangomonTest {
             Pangomon pangomon = aPangomon()
                     .withLevel(2)
                     .build()
-                    .modifyXp(200);
+                    .gainExperience(200);
 
             // then
             assertThat(pangomon.progression().experience()).isEqualTo(300);
@@ -95,7 +95,7 @@ class PangomonTest {
         void shouldPassFromLvl1To3_whenGain300Xp() {
             // given
             // when
-            Pangomon pangoWithXp = aBasicPangomon().modifyXp(300);
+            Pangomon pangoWithXp = aBasicPangomon().gainExperience(300);
 
             // then
             assertThat(pangoWithXp.progression().experience()).isEqualTo(300);
@@ -106,7 +106,7 @@ class PangomonTest {
         void shouldPassFromLvl1To25_whenGain30000Xp() {
             // given
             // when
-            Pangomon pangoWithXp = aBasicPangomon().modifyXp(30000);
+            Pangomon pangoWithXp = aBasicPangomon().gainExperience(30000);
 
             // then
             assertThat(pangoWithXp.progression().experience()).isEqualTo(30000);
@@ -117,7 +117,7 @@ class PangomonTest {
         void shouldPassFromLvl1To25_whenGain32499Xp() {
             // given
             // when
-            Pangomon pangoWithXp = aBasicPangomon().modifyXp(32499);
+            Pangomon pangoWithXp = aBasicPangomon().gainExperience(32499);
 
             // then
             assertThat(pangoWithXp.progression().experience()).isEqualTo(32499);
@@ -128,7 +128,7 @@ class PangomonTest {
         void shouldPassFromLvl1To26_whenGain32500Xp() {
             // given
             // when
-            Pangomon pangoWithXp = aBasicPangomon().modifyXp(32500);
+            Pangomon pangoWithXp = aBasicPangomon().gainExperience(32500);
 
             // then
             assertThat(pangoWithXp.progression().experience()).isEqualTo(32500);
@@ -147,7 +147,7 @@ class PangomonTest {
                     .withLevel(1)
                     .withBaseHealthPoints(10)
                     .build()
-                    .modifyXp(100);
+                    .gainExperience(100);
 
             // then
             assertThat(pangomon.healthPoints().value()).isEqualTo(10);
@@ -161,10 +161,11 @@ class PangomonTest {
                     .withLevel(1)
                     .withBaseHealthPoints(255)
                     .build()
-                    .modifyXp(100);
+                    .gainExperience(100);
 
             // then
             assertThat(pangomon.healthPoints().value()).isEqualTo(15);
         }
+
     }
 }

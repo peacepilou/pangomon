@@ -1,5 +1,7 @@
 package com.playground.domain.pangomon;
 
+import com.playground.domain.pangomon.statistics.HealthPoint;
+
 public record Progression(
         Level level,
         int experience

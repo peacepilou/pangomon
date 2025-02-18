@@ -1,9 +1,7 @@
 package com.playground.domain;
 
-import com.playground.domain.pangomon.HealthPoint;
-import com.playground.domain.pangomon.Level;
-import com.playground.domain.pangomon.Pangomon;
-import com.playground.domain.pangomon.Progression;
+import com.playground.domain.pangomon.*;
+import com.playground.domain.pangomon.statistics.HealthPoint;
 
 import java.util.UUID;
 
@@ -25,11 +23,10 @@ public record PangomonScenari(
                 "Normal",
                 new Progression(new Level(1), 0),
                 10,
-                new HealthPoint(10, 10),
+                new HealthPoint(10, 10, 0),
                 5,
                 5,
-                5
-        );
+                5);
     }
 
     public static PangomonScenari aPangomon() {
@@ -60,12 +57,16 @@ public record PangomonScenari(
         return new PangomonScenari(id, name, type, progression, pv, healthPoints, attack, defense, speed);
     }
 
-    public PangomonScenari withHealthPoints(int healthPoints) {
-        return new PangomonScenari(id, name, type, progression, pv, new HealthPoint(healthPoints, this.healthPoints.base()), attack, defense, speed);
+    public PangomonScenari withHealthPoints(int baseHealthPoints) {
+        return new PangomonScenari(id, name, type, progression, pv, new HealthPoint(baseHealthPoints, healthPoints.base(), healthPoints.iv()), attack, defense, speed);
     }
 
     public PangomonScenari withBaseHealthPoints(int baseHealthPoints) {
-        return new PangomonScenari(id, name, type, progression, pv, new HealthPoint(healthPoints.value(), baseHealthPoints), attack, defense, speed);
+        return new PangomonScenari(id, name, type, progression, pv, new HealthPoint(healthPoints.value(), baseHealthPoints, healthPoints.iv()), attack, defense, speed);
+    }
+
+    public PangomonScenari withIv(int iv) {
+        return new PangomonScenari(id, name, type, progression, pv, new HealthPoint(healthPoints.value(), healthPoints().base(), iv), attack, defense, speed);
     }
 
     public PangomonScenari withAttack(int attack) {

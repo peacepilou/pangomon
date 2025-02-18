@@ -19,6 +19,7 @@ public record Level(int value) {
 
     // TODO: is it the right place for this method?
     public Level levelFor(int experiencePoints) {
+        // TODO : Replace Magic numbers
         int levelValue = (int) Math.floor((1 + Math.sqrt(1 + 8 * experiencePoints / EXPERIENCE_FACTOR)) / 2);
         return new Level(levelValue);
     }

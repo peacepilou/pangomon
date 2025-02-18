@@ -1,5 +1,7 @@
 package com.playground.domain.pangomon;
 
+import com.playground.domain.pangomon.statistics.HealthPoint;
+
 import java.util.UUID;
 
 public record Pangomon(
@@ -37,7 +39,7 @@ public record Pangomon(
         return this.pv <= 0;
     }
 
-    public Pangomon modifyXp(int xp) {
+    public Pangomon gainExperience(int xp) {
         return this.progression.gainExperience(this, xp);
     }
 

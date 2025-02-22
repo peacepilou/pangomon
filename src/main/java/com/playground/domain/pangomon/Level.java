@@ -2,11 +2,14 @@ package com.playground.domain.pangomon;
 
 import com.playground.utils.Preconditions;
 
+import static com.playground.utils.Preconditions.require;
+
 public record Level(int value) {
     private static final int EXPERIENCE_FACTOR = 100;
 
     public Level {
-        Preconditions.require(value >= 1, "Level value can't be less than 1");
+        require(value >= 1, "Level value can't be less than 1");
+        require(value <= 100, "Level value can't be more than 100");
     }
 
     public Level levelUp() {
@@ -15,12 +18,5 @@ public record Level(int value) {
 
     public int experienceForNextLevel() {
         return value * EXPERIENCE_FACTOR;
-    }
-
-    // TODO: is it the right place for this method?
-    public Level levelFor(int experiencePoints) {
-        // TODO : Replace Magic numbers
-        int levelValue = (int) Math.floor((1 + Math.sqrt(1 + 8 * experiencePoints / EXPERIENCE_FACTOR)) / 2);
-        return new Level(levelValue);
     }
 }

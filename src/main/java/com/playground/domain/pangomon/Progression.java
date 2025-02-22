@@ -1,21 +1,28 @@
 package com.playground.domain.pangomon;
 
-import com.playground.domain.pangomon.statistics.HealthPoint;
+import com.playground.domain.pangomon.statistics.HealthPoints;
 
 public record Progression(
         Level level,
         int experience
 ) {
+    // TODO: maybe make this recursive ?
     public Pangomon gainExperience(Pangomon pangomon, int xp) {
         int experience = xp;
         Level actualLevel = level;
 
-        HealthPoint healthPoints = pangomon.healthPoints();
+        HealthPoints healthPoints = pangomon.healthPoints();
 
         while (experience >= actualLevel.experienceForNextLevel()) {
             experience -= actualLevel.experienceForNextLevel();
             actualLevel = actualLevel.levelUp();
-            healthPoints = healthPoints.increase();
+            healthPoints = new HealthPoints(
+                    actualLevel,
+                    healthPoints.base(),
+                    healthPoints.individualValue(),
+                    healthPoints.effortValue(),
+                    healthPoints.current()
+            );
         }
 
         return new Pangomon(
@@ -23,7 +30,6 @@ public record Progression(
                 pangomon.name(),
                 pangomon.type(),
                 new Progression(actualLevel, this.experience + xp),
-                pangomon.pv(),
                 healthPoints,
                 pangomon.attack(),
                 pangomon.defense(),

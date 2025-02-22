@@ -4,6 +4,7 @@ import com.playground.domain.pangomon.Level;
 import com.playground.domain.pangomon.Pangomon;
 import com.playground.domain.pangomon.Progression;
 import com.playground.domain.pangomon.driving.PangomonService;
+import com.playground.domain.pangomon.statistics.HealthPoints;
 
 import java.util.UUID;
 
@@ -22,12 +23,15 @@ public class PangomonController {
 
     private Pangomon toDomain(PangomonRequestDto requestDto) {
         // Convert a PangomonRequestDto to a Pangomon
+        Progression progression = new Progression(new Level(requestDto.progression().level()), requestDto.progression().xp());
+
+        // TODO: change the DTO
         return new Pangomon(
                 UUID.fromString(requestDto.id()),
                 requestDto.name(),
                 requestDto.type(),
-                new Progression(new Level(requestDto.progression().level()), requestDto.progression().xp()),
-                requestDto.pv(),
+                progression,
+                new HealthPoints(progression.level(), 0, 0, 0, 0),
                 requestDto.attack(),
                 requestDto.defense(),
                 requestDto.speed()
@@ -41,7 +45,7 @@ public class PangomonController {
                 pangomon.name(),
                 pangomon.type(),
                 new ProgressionResponseDto(pangomon.progression().level().value(), pangomon.progression().experience()),
-                pangomon.pv(),
+                pangomon.healthPoints().current(),
                 pangomon.attack(),
                 pangomon.defense(),
                 pangomon.speed()

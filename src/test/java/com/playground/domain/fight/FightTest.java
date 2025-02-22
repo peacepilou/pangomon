@@ -1,13 +1,9 @@
 package com.playground.domain.fight;
 
-import com.playground.domain.PangomonScenari;
 import com.playground.domain.pangomon.Pangomon;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.RepeatedTest;
 
-import java.util.UUID;
-
-import static com.playground.domain.PangomonScenari.aBasicPangomon;
 import static com.playground.domain.PangomonScenari.aPangomon;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,7 +23,7 @@ class FightTest {
 
             // when
             // then
-            assertThat(fight.initiativeOrder().get(0))
+            assertThat(fight.initiativeOrder().getFirst())
                     .isEqualTo(playerPangomon);
         }
 

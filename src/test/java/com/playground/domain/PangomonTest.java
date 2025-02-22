@@ -1,10 +1,12 @@
 package com.playground.domain;
 
+import com.playground.domain.pangomon.Level;
 import com.playground.domain.pangomon.Pangomon;
+import com.playground.domain.pangomon.statistics.HealthPoints;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static com.playground.domain.PangomonScenari.*;
+import static com.playground.domain.PangomonScenari.aPangomon;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,20 +16,21 @@ class PangomonTest {
 
         @Test
         void pangomonAttacksAnotherPangomon() {
-            Pangomon playerPangomon = aBasicPangomon();
-            Pangomon iAPangomon = aBasicPangomon();
+            Pangomon playerPangomon = aPangomon().withAttack(5).build();
+            Pangomon iAPangomon = aPangomon().withCurrentHP(10).build();
 
             Pangomon iaPangomonHurted = playerPangomon.attacks(iAPangomon);
-            assertEquals(5, iaPangomonHurted.pv());
+            assertEquals(5, iaPangomonHurted.healthPoints().current());
         }
 
         @Test
         void pangomonTakeDamages() {
             // given
             // when
-            Pangomon iAPangomon = aBasicPangomon().takeDamages(5);
+            Pangomon iAPangomon = aPangomon().withCurrentHP(10).build().takeDamages(5);
+
             // then
-            assertEquals(5, iAPangomon.pv());
+            assertEquals(5, iAPangomon.healthPoints().current());
 
         }
 
@@ -35,10 +38,10 @@ class PangomonTest {
         void shouldBeKO_whenPvEqual0() {
             // given
             // when
-            Pangomon koPangomon = aBasicPangomon().takeDamages(10);
+            Pangomon koPangomon = aPangomon().withCurrentHP(10).build().takeDamages(10);
 
             // then
-            assertThat(koPangomon.pv()).isEqualTo(0);
+            assertThat(koPangomon.healthPoints().current()).isEqualTo(0);
             assertThat(koPangomon.isKo()).isTrue();
         }
 
@@ -46,10 +49,10 @@ class PangomonTest {
         void shouldBeKO_whenPvIsLessOrEqual0() {
             // given
             // when
-            Pangomon koPangomon = aBasicPangomon().takeDamages(11);
+            Pangomon koPangomon = aPangomon().withCurrentHP(10).build().takeDamages(11);
 
             // then
-            assertThat(koPangomon.pv()).isEqualTo(0);
+            assertThat(koPangomon.healthPoints().current()).isEqualTo(0);
             assertThat(koPangomon.isKo()).isTrue();
         }
     }
@@ -60,7 +63,7 @@ class PangomonTest {
         void shouldGainXp() {
             // given
             // when
-            Pangomon pangomon = aBasicPangomon().gainExperience(50);
+            Pangomon pangomon = aPangomon().withExperience(0).build().gainExperience(50);
 
             // then
             assertThat(pangomon.progression().experience()).isEqualTo(50);
@@ -70,7 +73,7 @@ class PangomonTest {
         void shouldPassFromLvl1ToLvl2_whenGain100Xp() {
             // given
             // when
-            Pangomon pangomon = aBasicPangomon().gainExperience(100);
+            Pangomon pangomon = aPangomon().withExperience(0).build().gainExperience(100);
 
             // then
             assertThat(pangomon.progression().experience()).isEqualTo(100);
@@ -95,7 +98,7 @@ class PangomonTest {
         void shouldPassFromLvl1To3_whenGain300Xp() {
             // given
             // when
-            Pangomon pangoWithXp = aBasicPangomon().gainExperience(300);
+            Pangomon pangoWithXp = aPangomon().withExperience(0).build().gainExperience(300);
 
             // then
             assertThat(pangoWithXp.progression().experience()).isEqualTo(300);
@@ -106,7 +109,7 @@ class PangomonTest {
         void shouldPassFromLvl1To25_whenGain30000Xp() {
             // given
             // when
-            Pangomon pangoWithXp = aBasicPangomon().gainExperience(30000);
+            Pangomon pangoWithXp = aPangomon().withExperience(0).build().gainExperience(30000);
 
             // then
             assertThat(pangoWithXp.progression().experience()).isEqualTo(30000);
@@ -117,7 +120,7 @@ class PangomonTest {
         void shouldPassFromLvl1To25_whenGain32499Xp() {
             // given
             // when
-            Pangomon pangoWithXp = aBasicPangomon().gainExperience(32499);
+            Pangomon pangoWithXp = aPangomon().withExperience(0).build().gainExperience(32499);
 
             // then
             assertThat(pangoWithXp.progression().experience()).isEqualTo(32499);
@@ -128,7 +131,7 @@ class PangomonTest {
         void shouldPassFromLvl1To26_whenGain32500Xp() {
             // given
             // when
-            Pangomon pangoWithXp = aBasicPangomon().gainExperience(32500);
+            Pangomon pangoWithXp = aPangomon().withExperience(0).build().gainExperience(32500);
 
             // then
             assertThat(pangoWithXp.progression().experience()).isEqualTo(32500);
@@ -137,35 +140,39 @@ class PangomonTest {
 
     }
 
+    // TODO: make complete stats checks
     @Nested
     class LevelUpTest {
         @Test
-        void pangomonWith10BaseHP_shouldNotGainHP_whenLevelUp() {
+        void pangomonWith1BaseHP_levelUp() {
             // given
+            HealthPoints healthPoints = new HealthPoints(new Level(1), 1, 0, 0, 0);
+
             // when
             Pangomon pangomon = aPangomon()
                     .withLevel(1)
-                    .withBaseHealthPoints(10)
+                    .withHealthPoints(healthPoints)
                     .build()
                     .gainExperience(100);
 
             // then
-            assertThat(pangomon.healthPoints().value()).isEqualTo(10);
+            assertThat(pangomon.healthPoints().max()).isEqualTo(12);
         }
 
         @Test
-        void pangomonWith255BaseHP_shouldGain5HP_whenLevelUp() {
+        void pangomonWith255BaseHPAndLevel1_shouldHave16HPMax() {
             // given
+            HealthPoints healthPoints = new HealthPoints(new Level(1), 255, 0, 0, 0);
+
             // when
             Pangomon pangomon = aPangomon()
                     .withLevel(1)
-                    .withBaseHealthPoints(255)
+                    .withHealthPoints(healthPoints)
                     .build()
                     .gainExperience(100);
 
             // then
-            assertThat(pangomon.healthPoints().value()).isEqualTo(15);
+            assertThat(pangomon.healthPoints().max()).isEqualTo(22);
         }
-
     }
 }

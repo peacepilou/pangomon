@@ -4,6 +4,7 @@ import com.playground.domain.pangomon.Level;
 import com.playground.domain.pangomon.Pangomon;
 import com.playground.domain.pangomon.Progression;
 import com.playground.domain.pangomon.driven.PangomonStorage;
+import com.playground.domain.pangomon.statistics.HealthPoints;
 
 import java.util.List;
 import java.util.UUID;
@@ -37,20 +38,21 @@ public class InMemoryPangomonStorage implements PangomonStorage {
                 pangomon.type(),
                 pangomon.progression().level().value(),
                 pangomon.progression().experience(),
-                pangomon.pv(),
+                pangomon.healthPoints().current(),
                 pangomon.attack(),
                 pangomon.defense(),
                 pangomon.speed()
         );
     }
 
+    // TODO: fix health points
     private Pangomon toDomain(PangomonEntity entity) {
         return new Pangomon(
                 UUID.fromString(entity.id()),
                 entity.name(),
                 entity.type(),
                 new Progression(new Level(entity.level()), entity.xp()),
-                entity.pv(),
+                new HealthPoints(new Level(entity.level()), 0, 0, 0, 0),
                 entity.attack(),
                 entity.defense(),
                 entity.speed()

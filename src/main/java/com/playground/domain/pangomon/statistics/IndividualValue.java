@@ -2,9 +2,15 @@ package com.playground.domain.pangomon.statistics;
 
 import com.playground.domain.pangomon.Pangomon;
 
+import static com.playground.utils.Preconditions.require;
+
 // TODO: Rules to implement
 // this is on the "creation" of the pangomon
 public record IndividualValue(int value) {
+
+    public IndividualValue {
+        require(value >= 0 && value <= 31, "IV must be between 0 and 31");
+    }
     // TODO: Add validation
     // TODO: Rules to implement
     // de 0 à 31 repartis sur les 6 stats

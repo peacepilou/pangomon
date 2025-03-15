@@ -4,11 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f640bda-8e6e-4182-ae1c-e986cb5deb4f" name="Changes" comment="Reworks PangomonScenari and remove accuracy and dodge">
+    <list default="true" id="8f640bda-8e6e-4182-ae1c-e986cb5deb4f" name="Changes" comment="Refactoring of Pangomon and stats.&#10;Also fix compile.&#10;WIP">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/pangomon/LevelTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/pangomon/PangomonPropertyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/pangomon/statistics/BasesTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/pangomon/statistics/EffortValuesTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/pangomon/statistics/IndividualValuesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/HealthPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/HealthPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/fight/Fight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/fight/Fight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Progression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Nature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Nature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Pangomon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/Pangomon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/PangomonFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/PangomonFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/Attack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/Defense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/Defense.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/EffortValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/IndividualValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/SpecialAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/SpecialAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/SpecialDefense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/SpecialDefense.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/Speed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/Speed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/Statistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/domain/pangomon/statistics/Statistic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/infrastructure/pangomon/InMemoryPangomonStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/infrastructure/pangomon/InMemoryPangomonStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/playground/specs.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/playground/specs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/playground/domain/PangomonScenari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/pangomon/PangomonScenari.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/playground/domain/PangomonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/pangomon/PangomonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/playground/domain/StatisticsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/playground/domain/fight/FightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/playground/domain/fight/FightTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,10 +40,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
-        <option value="Record" />
         <option value="Enum" />
+        <option value="Record" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -39,86 +61,140 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FightTest$Attack.pangomonAttacksAnotherPangomon.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FightTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FightTest.playerPangomon_ShouldFightFirst_WhenItHasHigherSpeed.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest$TakeDamages.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest$TakeDamages.pangomonTakeDamages.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest,shouldCreatePangomon and 3 more.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest.create.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest.shouldBeKO_whenPvEqual0.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest.shouldCreatePangomon.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PangomonTest.shouldPassFromLvl1To3_whenGain300Xp.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.PangomonTest.shouldPassFromLvl1ToLvl2_whenGain100Xp.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.PangomonTest.shouldPassFromLvl1ToLvl_whenGain200Xp.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.java in pangomon.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/pilou/Documents/Programming/playgrounds/Pangomon&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.BasesTest.executor": "Run",
+    "JUnit.EffortValuesTest.testEffortValuesInvariants.executor": "Run",
+    "JUnit.FightTest$Attack.pangomonAttacksAnotherPangomon.executor": "Run",
+    "JUnit.FightTest.executor": "Run",
+    "JUnit.FightTest.playerPangomon_ShouldFightFirst_WhenItHasHigherSpeed.executor": "Run",
+    "JUnit.PangomonHealthPointsTest.Hp.executor": "Debug",
+    "JUnit.PangomonHealthPointsTest.executor": "Run",
+    "JUnit.PangomonHealthPointsTest.testHealthPointsCalculation.executor": "Run",
+    "JUnit.PangomonPropertyTest$HealthPoints.HealthPoints_should_be_between_11_and_808.executor": "Run",
+    "JUnit.PangomonPropertyTest$Speed.Speed_should_be_between_1_and_460.executor": "Run",
+    "JUnit.PangomonPropertyTest$Speed.Speed_should_be_between_5_and_460.executor": "Run",
+    "JUnit.PangomonPropertyTest$Speed.Speed_with_nature_bonus_should_be_between_5_and_708.executor": "Run",
+    "JUnit.PangomonPropertyTest$Speed.Speed_without_nature_should_be_between_5_and_460.executor": "Run",
+    "JUnit.PangomonPropertyTest$Speed.Speed_without_nature_should_be_between_5_and_703.executor": "Run",
+    "JUnit.PangomonPropertyTest.executor": "Run",
+    "JUnit.PangomonTest$LevelUpTest.pangomonWith10BaseHP_shouldNotGainHP_whenLevelUp.executor": "Run",
+    "JUnit.PangomonTest$LevelUpTest.pangomonWith1BaseHPAndLevel1_shouldHave11HPMax.executor": "Run",
+    "JUnit.PangomonTest$LevelUpTest.pangomonWith255BaseHPAndLevel1_shouldHave16HPMax.executor": "Run",
+    "JUnit.PangomonTest$LevelUpTest.pangomonWith255BaseHP_shouldGain5HP_whenLevelUp.executor": "Run",
+    "JUnit.PangomonTest$PangomonBisTest.executor": "Run",
+    "JUnit.PangomonTest$PangomonBisTest.foo.executor": "Run",
+    "JUnit.PangomonTest$PangomonOptionsTest$SPEED_level1.executor": "Run",
+    "JUnit.PangomonTest$PangomonOptionsTest$SPEED_level1.max_speed_should_be_5.executor": "Run",
+    "JUnit.PangomonTest$PangomonOptionsTest$SPEED_level1.min_speed_should_be_5.executor": "Run",
+    "JUnit.PangomonTest$PangomonOptionsTest$SPEED_level1.nature_should_increase_speed.executor": "Run",
+    "JUnit.PangomonTest$PangomonOptionsTest.bar.executor": "Run",
+    "JUnit.PangomonTest$PangomonOptionsTest.executor": "Run",
+    "JUnit.PangomonTest$PangomonOptionsTest.foo.executor": "Run",
+    "JUnit.PangomonTest$PangomonOptionsTest.min_hp_should_be_.executor": "Run",
+    "JUnit.PangomonTest$PangomonOptionsTest.min_hp_should_be_11.executor": "Run",
+    "JUnit.PangomonTest$PangomonStatistics$HP_level_1.executor": "Run",
+    "JUnit.PangomonTest$PangomonStatistics$HP_level_1.hp_with_max_BASE_should_be_16.executor": "Run",
+    "JUnit.PangomonTest$PangomonStatistics$HP_level_1.hp_with_max_EV_should_be_74.executor": "Run",
+    "JUnit.PangomonTest$PangomonStatistics$HP_level_1.min_hp_with_max_BASE_and_max_EV_and_max_IV_should_be_111.executor": "Run",
+    "JUnit.PangomonTest$PangomonStatistics$HP_level_1.min_hp_with_max_BASE_should_be_111.executor": "Run",
+    "JUnit.PangomonTest$PangomonStatistics$SPEED_level_1.min_speed_without_nature_should_be_5.executor": "Run",
+    "JUnit.PangomonTest$TakeDamages.executor": "Run",
+    "JUnit.PangomonTest$TakeDamages.pangomonTakeDamages.executor": "Run",
+    "JUnit.PangomonTest$handleDamages.pangomonAttacksAnotherPangomon.executor": "Run",
+    "JUnit.PangomonTest,shouldCreatePangomon and 3 more.executor": "Run",
+    "JUnit.PangomonTest.create.executor": "Run",
+    "JUnit.PangomonTest.executor": "Run",
+    "JUnit.PangomonTest.shouldBeKO_whenPvEqual0.executor": "Run",
+    "JUnit.PangomonTest.shouldCreatePangomon.executor": "Run",
+    "JUnit.PangomonTest.shouldPassFromLvl1To3_whenGain300Xp.executor": "Debug",
+    "JUnit.PangomonTest.shouldPassFromLvl1ToLvl2_whenGain100Xp.executor": "Debug",
+    "JUnit.PangomonTest.shouldPassFromLvl1ToLvl_whenGain200Xp.executor": "Run",
+    "JUnit.Speed.Speed_with_nature_bonus_should_be_between_5_and_708.[5] 211, 3, 4, 11.executor": "Debug",
+    "JUnit.StatisticsTest$HealthPointTests.executor": "Run",
+    "JUnit.java in pangomon.executor": "Run",
+    "Maven.pangomon [test].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/pilou/Documents/Programming/playgrounds/Pangomon",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.3045977",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\Benoi\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.playground.domain.pangomon" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.playground.domain.pangomon" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.playground.domain.pangomon" />
+      <recent name="com.playground.domain.pangomon.statistics" />
       <recent name="com.playground.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in pangomon">
-    <configuration name="FightTest$Attack.pangomonAttacksAnotherPangomon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.PangomonPropertyTest">
+    <configuration name="PangomonPropertyTest$Speed.Speed_without_nature_should_be_between_5_and_703" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pangomon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.playground.domain.fight.*" />
+          <option name="PATTERN" value="com.playground.domain.pangomon.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.playground.domain.fight.FightTest" />
-      <option name="MAIN_CLASS_NAME" value="com.playground.domain.fight.FightTest$Attack" />
-      <option name="METHOD_NAME" value="pangomonAttacksAnotherPangomon" />
+      <option name="PACKAGE_NAME" value="com.playground.domain.pangomon.PangomonPropertyTest" />
+      <option name="MAIN_CLASS_NAME" value="com.playground.domain.pangomon.PangomonPropertyTest$Speed" />
+      <option name="METHOD_NAME" value="Speed_without_nature_should_be_between_5_and_703(int,int,int,int)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PangomonTest$TakeDamages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PangomonPropertyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pangomon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.playground.domain.*" />
+          <option name="PATTERN" value="com.playground.domain.pangomon.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.playground.domain.PangomonTest" />
-      <option name="MAIN_CLASS_NAME" value="com.playground.domain.PangomonTest$TakeDamages" />
+      <option name="PACKAGE_NAME" value="com.playground.domain.pangomon" />
+      <option name="MAIN_CLASS_NAME" value="com.playground.domain.pangomon.PangomonPropertyTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PangomonTest$TakeDamages.pangomonTakeDamages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PangomonTest$PangomonStatistics$HP_level_1.hp_with_max_EV_should_be_74" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pangomon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.playground.domain.*" />
+          <option name="PATTERN" value="com.playground.domain.pangomon.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.playground.domain.PangomonTest" />
-      <option name="MAIN_CLASS_NAME" value="com.playground.domain.PangomonTest$TakeDamages" />
-      <option name="METHOD_NAME" value="pangomonTakeDamages" />
+      <option name="PACKAGE_NAME" value="com.playground.domain.pangomon.PangomonTest.PangomonStatistics" />
+      <option name="MAIN_CLASS_NAME" value="com.playground.domain.pangomon.PangomonTest$PangomonStatistics$HP_level_1" />
+      <option name="METHOD_NAME" value="hp_with_max_EV_should_be_74" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -132,8 +208,8 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.playground.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.playground.domain.PangomonTest" />
+      <option name="PACKAGE_NAME" value="com.playground.domain.pangomon" />
+      <option name="MAIN_CLASS_NAME" value="com.playground.domain.pangomon.PangomonTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,13 +225,21 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in pangomon" />
+        <item itemvalue="JUnit.PangomonPropertyTest" />
         <item itemvalue="JUnit.PangomonTest" />
-        <item itemvalue="JUnit.FightTest$Attack.pangomonAttacksAnotherPangomon" />
-        <item itemvalue="JUnit.PangomonTest$TakeDamages" />
-        <item itemvalue="JUnit.PangomonTest$TakeDamages.pangomonTakeDamages" />
+        <item itemvalue="JUnit.PangomonTest$PangomonStatistics$HP_level_1.hp_with_max_EV_should_be_74" />
+        <item itemvalue="JUnit.java in pangomon" />
+        <item itemvalue="JUnit.PangomonPropertyTest$Speed.Speed_without_nature_should_be_between_5_and_703" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -165,6 +249,29 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715689636983</updated>
+      <workItem from="1739995634873" duration="1360000" />
+      <workItem from="1740002258861" duration="2000" />
+      <workItem from="1740154148738" duration="2902000" />
+      <workItem from="1740161127730" duration="221000" />
+      <workItem from="1740161359911" duration="694000" />
+      <workItem from="1740175598325" duration="2938000" />
+      <workItem from="1740217610961" duration="5437000" />
+      <workItem from="1740226644083" duration="214000" />
+      <workItem from="1740240939900" duration="18045000" />
+      <workItem from="1740305421622" duration="652000" />
+      <workItem from="1740516229650" duration="246000" />
+      <workItem from="1740824428845" duration="38000" />
+      <workItem from="1741035237232" duration="63000" />
+      <workItem from="1741554583510" duration="113000" />
+      <workItem from="1741804021670" duration="7886000" />
+      <workItem from="1741888257913" duration="179000" />
+      <workItem from="1742025759596" duration="2746000" />
+      <workItem from="1742074936522" duration="30000" />
+      <workItem from="1742119271683" duration="105000" />
+      <workItem from="1742121405765" duration="5004000" />
+      <workItem from="1742132327786" duration="627000" />
+      <workItem from="1742142331852" duration="6584000" />
+      <workItem from="1742149040507" duration="5141000" />
     </task>
     <task id="LOCAL-00001" summary="Add statistics formulas">
       <option name="closed" value="true" />
@@ -182,8 +289,27 @@
       <option name="project" value="LOCAL" />
       <updated>1725213084353</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Finish HealthPoints option 1">
+      <option name="closed" value="true" />
+      <created>1740261665145</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740261665145</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Refactoring of Pangomon and stats.&#10;Also fix compile.&#10;WIP">
+      <option name="closed" value="true" />
+      <created>1742027819627</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742027819627</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ID_ORDER">
@@ -208,7 +334,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add statistics formulas" />
+    <MESSAGE value="Finish HealthPoints option 1" />
     <MESSAGE value="Reworks PangomonScenari and remove accuracy and dodge" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reworks PangomonScenari and remove accuracy and dodge" />
+    <MESSAGE value="Refactoring of Pangomon and stats.&#10;Also fix compile.&#10;WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring of Pangomon and stats.&#10;Also fix compile.&#10;WIP" />
   </component>
 </project>

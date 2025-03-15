@@ -12,7 +12,6 @@ public class CreatePangomonService implements PangomonService {
 
     @Override
     public Pangomon createPangomon(Pangomon pangomon) {
-        Pangomon savedPangomon = pangomonStorage.save(pangomon);
-        return savedPangomon;
+        return pangomonStorage.save(pangomon);
     }
 }

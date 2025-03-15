@@ -1,6 +1,6 @@
-package com.playground.domain.pangomon;
+package com.playground.domain.pangomon.statistics;
 
-enum Statistic {
+public enum Statistic {
     ATTACK,
     DEFENSE,
     SPECIAL_ATTACK,
@@ -8,7 +8,6 @@ enum Statistic {
     SPEED,
     NONE
 }
-
 
 
 // start for all stats at specific level

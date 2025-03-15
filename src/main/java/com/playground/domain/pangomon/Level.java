@@ -1,7 +1,5 @@
 package com.playground.domain.pangomon;
 
-import com.playground.utils.Preconditions;
-
 import static com.playground.utils.Preconditions.require;
 
 public record Level(int value) {

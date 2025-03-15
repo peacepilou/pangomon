@@ -2,11 +2,16 @@ package com.playground.exposition.pangomon;
 
 import com.playground.domain.pangomon.Level;
 import com.playground.domain.pangomon.Pangomon;
+import com.playground.domain.pangomon.PangomonFactory;
 import com.playground.domain.pangomon.Progression;
 import com.playground.domain.pangomon.driving.PangomonService;
-import com.playground.domain.pangomon.statistics.HealthPoints;
+import com.playground.domain.pangomon.statistics.Bases;
+import com.playground.domain.pangomon.statistics.EffortValues;
+import com.playground.domain.pangomon.statistics.IndividualValues;
 
 import java.util.UUID;
+
+import static com.playground.domain.pangomon.Nature.BASHFUL;
 
 public class PangomonController {
     private final PangomonService pangomonService;
@@ -26,29 +31,27 @@ public class PangomonController {
         Progression progression = new Progression(new Level(requestDto.progression().level()), requestDto.progression().xp());
 
         // TODO: change the DTO
-        return new Pangomon(
+        return PangomonFactory.createPangomon(
                 UUID.fromString(requestDto.id()),
                 requestDto.name(),
                 requestDto.type(),
                 progression,
-                new HealthPoints(progression.level(), 0, 0, 0, 0),
-                requestDto.attack(),
-                requestDto.defense(),
-                requestDto.speed()
+                new Bases(0, 0, 0, 0, 0, 0),
+                new IndividualValues(0, 0, 0, 0, 0, 0),
+                new EffortValues(0, 0, 0, 0, 0, 0),
+                BASHFUL
         );
     }
 
     private PangomonResponseDto toResponseDto(Pangomon pangomon) {
         // Convert a Pangomon to a PangomonResponseDto
         return new PangomonResponseDto(
-                pangomon.id().toString(),
-                pangomon.name(),
-                pangomon.type(),
-                new ProgressionResponseDto(pangomon.progression().level().value(), pangomon.progression().experience()),
-                pangomon.healthPoints().current(),
-                pangomon.attack(),
-                pangomon.defense(),
-                pangomon.speed()
+                pangomon.getId().toString(),
+                pangomon.getName(),
+                pangomon.getType(),
+                new ProgressionResponseDto(pangomon.getProgression().level().value(), pangomon.getProgression().experience()),
+                pangomon.getHealthPoints().current(),
+                0, 0, 0
         );
     }
 }

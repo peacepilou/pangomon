@@ -1,6 +1,10 @@
 package com.playground.domain.pangomon;
 
-import static com.playground.domain.pangomon.Statistic.*;
+import com.playground.domain.pangomon.statistics.Statistic;
+
+import java.util.Map;
+
+import static com.playground.domain.pangomon.statistics.Statistic.*;
 
 public enum Nature {
     ADAMANT(ATTACK, SPECIAL_ATTACK),
@@ -29,14 +33,25 @@ public enum Nature {
     SERIOUS(NONE, NONE),
     TIMID(SPEED, ATTACK);
 
-    // TODO: rules to implement
-    // bonus = +10%
-    // malus = -10%
-    private final Statistic bonus;
-    private final Statistic malus;
+    public static final double BONUS = 1.1;
+    public static final double MALUS = 0.9;
+    private final Statistic statisticToIncrease;
+    private final Statistic statisticToDecrease;
 
-    Nature(Statistic bonus, Statistic malus) {
-        this.bonus = bonus;
-        this.malus = malus;
+    Nature(Statistic statisticToIncrease, Statistic statisticToDecrease) {
+        this.statisticToIncrease = statisticToIncrease;
+        this.statisticToDecrease = statisticToDecrease;
+    }
+
+    public double multiplier(Statistic statistic) {
+        return modifiers().containsKey(statistic) ? modifiers().get(statistic) : 1;
+    }
+
+    private Map<Statistic, Double> modifiers() {
+        if (statisticToIncrease == NONE && statisticToDecrease == NONE) {
+            return Map.of();
+        }
+
+        return Map.of(statisticToIncrease, BONUS, statisticToDecrease, MALUS);
     }
 }

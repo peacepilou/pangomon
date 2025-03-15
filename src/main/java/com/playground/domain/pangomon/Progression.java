@@ -11,29 +11,26 @@ public record Progression(
         int experience = xp;
         Level actualLevel = level;
 
-        HealthPoints healthPoints = pangomon.healthPoints();
+        HealthPoints healthPoints = pangomon.getHealthPoints();
 
         while (experience >= actualLevel.experienceForNextLevel()) {
             experience -= actualLevel.experienceForNextLevel();
             actualLevel = actualLevel.levelUp();
             healthPoints = new HealthPoints(
-                    actualLevel,
-                    healthPoints.base(),
-                    healthPoints.individualValue(),
-                    healthPoints.effortValue(),
+                    healthPoints.max(),
                     healthPoints.current()
             );
         }
 
         return new Pangomon(
-                pangomon.id(),
-                pangomon.name(),
-                pangomon.type(),
+                pangomon.getId(),
+                pangomon.getName(),
+                pangomon.getType(),
                 new Progression(actualLevel, this.experience + xp),
-                healthPoints,
-                pangomon.attack(),
-                pangomon.defense(),
-                pangomon.speed()
+                pangomon.getBases(),
+                pangomon.getIndividualValues(),
+                pangomon.getEffortValues(),
+                pangomon.getNature()
         );
     }
 }

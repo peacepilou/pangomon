@@ -2,12 +2,17 @@ package com.playground.infrastructure.pangomon;
 
 import com.playground.domain.pangomon.Level;
 import com.playground.domain.pangomon.Pangomon;
+import com.playground.domain.pangomon.PangomonFactory;
 import com.playground.domain.pangomon.Progression;
 import com.playground.domain.pangomon.driven.PangomonStorage;
-import com.playground.domain.pangomon.statistics.HealthPoints;
+import com.playground.domain.pangomon.statistics.Bases;
+import com.playground.domain.pangomon.statistics.EffortValues;
+import com.playground.domain.pangomon.statistics.IndividualValues;
 
 import java.util.List;
 import java.util.UUID;
+
+import static com.playground.domain.pangomon.Nature.BASHFUL;
 
 public class InMemoryPangomonStorage implements PangomonStorage {
     // This is to fake the database
@@ -33,29 +38,37 @@ public class InMemoryPangomonStorage implements PangomonStorage {
 
     private PangomonEntity toEntity(Pangomon pangomon) {
         return new PangomonEntity(
-                pangomon.id().toString(),
-                pangomon.name(),
-                pangomon.type(),
-                pangomon.progression().level().value(),
-                pangomon.progression().experience(),
-                pangomon.healthPoints().current(),
-                pangomon.attack(),
-                pangomon.defense(),
-                pangomon.speed()
+                pangomon.getId().toString(),
+                pangomon.getName(),
+                pangomon.getType(),
+                pangomon.getProgression().level().value(),
+                pangomon.getProgression().experience(),
+                pangomon.getHealthPoints().current(),
+                0, 0, 0
         );
     }
 
     // TODO: fix health points
     private Pangomon toDomain(PangomonEntity entity) {
-        return new Pangomon(
+        return PangomonFactory.createPangomon(
                 UUID.fromString(entity.id()),
                 entity.name(),
                 entity.type(),
                 new Progression(new Level(entity.level()), entity.xp()),
-                new HealthPoints(new Level(entity.level()), 0, 0, 0, 0),
-                entity.attack(),
-                entity.defense(),
-                entity.speed()
+                new Bases(0, 0, 0, 0, 0, 0),
+                new IndividualValues(0, 0, 0, 0, 0, 0),
+                new EffortValues(0, 0, 0, 0, 0, 0),
+                BASHFUL
         );
+//        return new Pangomon(
+//                UUID.fromString(entity.id()),
+//                entity.name(),
+//                entity.type(),
+//                new Progression(new Level(entity.level()), entity.xp()),
+//                new HealthPoints(new Level(entity.level()), 0, 0, 0, 0),
+//                entity.attack(),
+//                entity.defense(),
+//                entity.speed()
+//        );
     }
 }
